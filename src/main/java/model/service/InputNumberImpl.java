@@ -23,11 +23,21 @@ public class InputNumberImpl implements InputNumber{
     }
 
     public void inputBonusNumber() {
-        String bonusNumber = readLine();
-        targetNumbers.add(Integer.parseInt(bonusNumber));
+        targetNumbers.add(getBonusNumber());
     }
+
+    @Override
+    public int getBonusNumber() {
+        return Integer.parseInt(readLine());
+    }
+
+    @Override
+
 
     public List<Integer> getTargetNumbers() {
         return targetNumbers;
     }
+    
+    
+    
 }
