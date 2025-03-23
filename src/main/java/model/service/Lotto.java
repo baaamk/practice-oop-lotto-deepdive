@@ -1,4 +1,4 @@
-package lotto;
+package model.service;
 
 import java.util.List;
 
@@ -10,11 +10,14 @@ public class Lotto {
         this.numbers = numbers;
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("번호는 6개여야 합니다.");
         }
     }
 
-    // TODO: 추가 기능 구현
 }
