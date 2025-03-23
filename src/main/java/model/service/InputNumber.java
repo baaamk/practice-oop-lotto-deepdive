@@ -1,7 +1,5 @@
 package model.service;
 
-public class InputNumber {
-    public void getNumbers() {
-
-    }
+public interface InputNumber {
+    void inputNumber();
 }
