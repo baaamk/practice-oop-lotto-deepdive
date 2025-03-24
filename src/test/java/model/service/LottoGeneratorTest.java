@@ -6,7 +6,9 @@ class LottoGeneratorTest {
 
     @Test
     void lottoGenerate() {
-        LottoGeneratorImpl lottoGenerator = new LottoGeneratorImpl();
-        lottoGenerator.lottoGenerate(5);
+        MoneyInputImpl moneyInput = new MoneyInputImpl();
+        LottoGeneratorImpl lottoGenerator = new LottoGeneratorImpl(moneyInput);
+        moneyInput.countLotto(10000);
+        lottoGenerator.lottoGenerate();
     }
 }

@@ -1,9 +1,9 @@
 package model.repository;
 
 public class LottoWinningImpl implements LottoWinning{
-    private static final LottoRepositoryImpl instance = new LottoRepositoryImpl();
+    private static final LottoWinningImpl instance = new LottoWinningImpl();
 
-    public LottoRepositoryImpl getInstance() {
+    public static LottoWinningImpl getInstance() {
         return instance;
     }
 
