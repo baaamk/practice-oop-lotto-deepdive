@@ -7,4 +7,5 @@ import java.util.List;
 public interface LottoRepository {
     void saveGeneratedLotto(Lotto lotto);
     List<Lotto> getLotto();
+    List<List<Integer>> getLottoNumbers();
 }

@@ -7,34 +7,58 @@ public class LottoWinningImpl implements LottoWinning{
         return instance;
     }
 
-    private int first;
-    private int second;
-    private int third;
-    private int fourth;
-    private int fifth;
+    private final int[] matches = new int[5];
 
-    @Override
-    public void addFirst() {
-        first++;
+    public int[] getMatches() {
+        return matches;
     }
 
     @Override
-    public void addSecond() {
-        second++;
+    public int addFirst() {
+        return matches[4]++;
     }
 
     @Override
-    public void addThird() {
-        third++;
+    public int addSecond() {
+        return matches[3]++;
     }
 
     @Override
-    public void addFourth() {
-        fourth++;
+    public int addThird() {
+        return matches[2]++;
     }
 
     @Override
-    public void addFifth() {
-        fifth++;
+    public int addFourth() {
+       return matches[1]++;
+    }
+
+    @Override
+    public int addFifth() {
+        return matches[0]++;
+    }
+
+    public int getFirst() {
+        return matches[4];
+    }
+
+    @Override
+    public int getSecond() {
+        return matches[3];
+    }
+
+    @Override
+    public int getThird() {
+        return matches[2];
+    }
+
+    @Override
+    public int getFourth() {
+        return matches[1];
+    }
+
+    @Override
+    public int getFifth() {
+        return matches[0];
     }
 }

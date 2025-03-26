@@ -24,4 +24,12 @@ public class LottoRepositoryImpl implements LottoRepository{
         return lotto;
     }
 
+    public List<List<Integer>> getLottoNumbers() {
+        List<List<Integer>> lottoNumbersList = new ArrayList<>();
+        for (Lotto lotto : lotto) {
+            lottoNumbersList.add(lotto.getNumbers());
+        }
+        return lottoNumbersList;
+    }
+
 }

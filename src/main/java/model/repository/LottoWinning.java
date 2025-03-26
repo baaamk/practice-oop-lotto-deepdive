@@ -1,9 +1,15 @@
 package model.repository;
 
 public interface LottoWinning {
-    void addFirst();
-    void addSecond();
-    void addThird();
-    void addFourth();
-    void addFifth();
+    int addFirst();
+    int addSecond();
+    int addThird();
+    int addFourth();
+    int addFifth();
+    int getFirst();
+    int getSecond();
+    int getThird();
+    int getFourth();
+    int getFifth();
+    int[] getMatches();
 }

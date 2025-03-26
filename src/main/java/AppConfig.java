@@ -1,3 +1,4 @@
+import controller.LottoController;
 import model.repository.LottoRepository;
 import model.repository.LottoRepositoryImpl;
 import model.repository.LottoWinning;
@@ -10,13 +11,16 @@ import view.UserInputImpl;
 
 public class AppConfig {
     public LottoGenerator lottoGenerator() {
-        return new LottoGeneratorImpl(moneyInput());
+        return new LottoGeneratorImpl();
     }
 
     public MoneyInput moneyInput() {
         return new MoneyInputImpl();
     }
 
+    public Calculator calculator() {
+        return new CalculatorImpl(lottoWinning());
+    }
     public LottoRepository lottoRepository() {
         return LottoRepositoryImpl.getInstance();
     }
@@ -33,8 +37,16 @@ public class AppConfig {
         return new LottoMatcherImpl(lottoWinning());
     }
 
-    public UserInput targetInput() {
-        return new UserInputImpl();
+    public LottoSaver lottoSaver() {
+        return new LottoSaverImpl(lottoGenerator(),lottoRepository());
+    }
+
+    public LottoService lottoService() {
+        return new LottoService(calculator(), inputNumber(), lottoMatcher(), lottoSaver(), moneyInput());
+    }
+
+    public LottoController lottoController() {
+        return new LottoController(lottoService());
     }
 
 }

@@ -8,6 +8,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class InputNumberImpl implements InputNumber{
     private static final InputNumberImpl instance = new InputNumberImpl();
     private final List<Integer> targetNumbers = new ArrayList<>();
+    private int bonusNumber;
 
     public static InputNumberImpl getInstance() {
         return instance;
@@ -20,11 +21,15 @@ public class InputNumberImpl implements InputNumber{
 
     @Override
     public void inputBonusNumber(int inputBonusNumber) {
-        targetNumbers.add(inputBonusNumber);
+        bonusNumber = inputBonusNumber;
     }
 
     @Override
     public List<Integer> getTargetNumbers() {
         return targetNumbers;
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
     }
 }
