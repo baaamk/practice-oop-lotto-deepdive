@@ -9,6 +9,5 @@ class LottoGeneratorTest {
         MoneyInputImpl moneyInput = new MoneyInputImpl();
         LottoGeneratorImpl lottoGenerator = new LottoGeneratorImpl(moneyInput);
         moneyInput.countLotto(10000);
-        lottoGenerator.lottoGenerate();
     }
 }

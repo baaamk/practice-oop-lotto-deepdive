@@ -1,22 +1,20 @@
 package model.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.Collections;
+import model.repository.LottoRepository;
+import model.repository.LottoRepositoryImpl;
 
 public class LottoGeneratorImpl implements LottoGenerator {
-    private final MoneyInput moneyInput;
+    private final LottoRepository lottoRepository;
 
     public LottoGeneratorImpl(MoneyInput moneyInput) {
-        this.moneyInput = moneyInput;
+        this.lottoRepository = LottoRepositoryImpl.getInstance();
     }
 
-    public void lottoGenerate() {
-        for (int i = 0; i < moneyInput.getCount(); i++) {
-            Lotto lotto = new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6));
-            Collections.sort(lotto.getNumbers());
-            System.out.println(lotto);
-        }
+
+    public Lotto generateLotto() {
+        return new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6));
     }
+
 
 }

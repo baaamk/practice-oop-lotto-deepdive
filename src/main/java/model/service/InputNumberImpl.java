@@ -14,27 +14,17 @@ public class InputNumberImpl implements InputNumber{
     }
 
     @Override
-    public void inputNumber() {
-        String[] targetNumber = readLine().split(",");
-        for (String number : targetNumber) {
-            targetNumbers.add(Integer.parseInt(number));
-        }
-    }
-
-    public void inputBonusNumber() {
-        targetNumbers.add(getBonusNumber());
+    public void inputNumber(List<Integer> targetNumber) {
+        targetNumbers.addAll(targetNumber);
     }
 
     @Override
-    public int getBonusNumber() {
-        return Integer.parseInt(readLine());
+    public void inputBonusNumber(int inputBonusNumber) {
+        targetNumbers.add(inputBonusNumber);
     }
 
     @Override
     public List<Integer> getTargetNumbers() {
         return targetNumbers;
     }
-    
-    
-    
 }

@@ -5,8 +5,8 @@ import model.repository.LottoWinningImpl;
 import model.service.*;
 import model.service.MoneyInput;
 import model.service.MoneyInputImpl;
-import view.TargetInput;
-import view.TargetInputImpl;
+import view.UserInput;
+import view.UserInputImpl;
 
 public class AppConfig {
     public LottoGenerator lottoGenerator() {
@@ -33,8 +33,8 @@ public class AppConfig {
         return new LottoMatcherImpl(lottoWinning());
     }
 
-    public TargetInput targetInput() {
-        return new TargetInputImpl();
+    public UserInput targetInput() {
+        return new UserInputImpl();
     }
 
 }
