@@ -16,9 +16,9 @@ public class UserOutputImpl implements UserOutput {
         System.out.println("당첨 통계\n" + "---");
         System.out.println("3개 일치 (5,000원) - " + matches[0] + "개");
         System.out.println("4개 일치 (5,000원) - " + matches[1] + "개");
-        System.out.println("5개 일치 - " + matches[2] + "개");
+        System.out.println("5개 일치 (1,500,000원) - " + matches[2] + "개");
         System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + matches[3] + "개");
         System.out.println("6개 일치 (2,000,000,000원) - " + matches[4] + "개");
-        System.out.println("총 수이률은 " + percent + "%입니다.");
+        System.out.println("총 수익률은 " + percent + "%입니다.");
     }
 }
