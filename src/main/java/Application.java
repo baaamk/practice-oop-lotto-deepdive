@@ -7,6 +7,5 @@ public class Application {
         LottoController lottoController = appConfig.lottoController();
 
         lottoController.run();
-
     }
 }
