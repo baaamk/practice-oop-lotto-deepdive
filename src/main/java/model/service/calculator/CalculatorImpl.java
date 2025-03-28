@@ -1,6 +1,9 @@
 package model.service.calculator;
 
+import model.domain.Unit;
 import model.repository.LottoWinning;
+
+import static model.domain.Unit.*;
 
 public class CalculatorImpl implements Calculator {
     private final LottoWinning lottoWinning;
@@ -15,10 +18,10 @@ public class CalculatorImpl implements Calculator {
     }
 
     private int getTotalPrize() {
-        return lottoWinning.getFirst() * 2000000000
-                + lottoWinning.getSecond() * 30000000
-                + lottoWinning.getThird() * 1500000
-                + lottoWinning.getFourth() * 50000
-                + lottoWinning.getFifth() * 5000;
+        return lottoWinning.getFirst() * FIRST_PRIZE.getPrize()
+                + lottoWinning.getSecond() * FIRST_PRIZE.getPrize()
+                + lottoWinning.getThird() * FIRST_PRIZE.getPrize()
+                + lottoWinning.getFourth() * FIRST_PRIZE.getPrize()
+                + lottoWinning.getFifth() * FIRST_PRIZE.getPrize();
     }
 }
