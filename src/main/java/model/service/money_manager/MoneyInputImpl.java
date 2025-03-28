@@ -2,6 +2,7 @@ package model.service.money_manager;
 
 import model.domain.exception.Error;
 
+import static model.domain.exception.Error.*;
 import static model.domain.unit.Unit.*;
 
 public class MoneyInputImpl implements MoneyInput {
@@ -10,8 +11,11 @@ public class MoneyInputImpl implements MoneyInput {
 
     @Override
     public int countLotto(int money) {
+        if (money <= 0) {
+            throw new IllegalArgumentException(INVALID_PURCHASE_AMOUNT.getErrorMessage());
+        }
         if (money % UNIT_MONEY.getValue() !=0) {
-            throw new IllegalStateException(Error.INVALID_AMOUNT.getErrorMessage());
+            throw new IllegalArgumentException(INVALID_AMOUNT.getErrorMessage());
         }
         count = money/UNIT_MONEY.getValue();
         return count;
