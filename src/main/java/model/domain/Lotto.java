@@ -3,6 +3,9 @@ package model.domain;
 import java.util.Collections;
 import java.util.List;
 
+import static model.domain.Error.*;
+import static model.domain.Unit.*;
+
 public class Lotto {
     private final List<Integer> numbers;
 
@@ -17,8 +20,8 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("번호는 6개여야 합니다.");
+        if (numbers.size() != UNIT_LOTTO_NUMBER.getValue()) {
+            throw new IllegalArgumentException(INVALID_NUMBERS.getErrorMessage());
         }
     }
 

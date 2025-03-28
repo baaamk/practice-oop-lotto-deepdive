@@ -6,7 +6,10 @@ import view.input.UserInputImpl;
 import view.output.UserOutput;
 import view.output.UserOutputImpl;
 
+import java.util.HashSet;
 import java.util.List;
+
+import static model.domain.Error.*;
 
 public class LottoController {
     private final UserInput userInput;
@@ -31,8 +34,26 @@ public class LottoController {
     private void lottoMainService(int inputMoney) {
         List<Integer> targetLotto = userInput.inputNumber();
         int bonusNumber = userInput.inputBonusNumber();
+        lottoValidation(targetLotto, bonusNumber);
         lottoService.compare(targetLotto, bonusNumber);
         lottoService.calculateService(inputMoney);
+    }
+
+    private void lottoValidation(List<Integer> targetLotto, int bonusNumber) {
+        if (targetLotto.size() != 6) {
+            throw new IllegalArgumentException(INVALID_NUMBERS.getErrorMessage());
+        }
+        if (hasDuplicates(targetLotto)) {
+            throw new IllegalArgumentException(DUPLICATED_NUMBER.getErrorMessage());
+        }
+        if (targetLotto.contains(bonusNumber)) {
+            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER.getErrorMessage());
+        }
+
+    }
+
+    private boolean hasDuplicates(List<Integer> targetLotto) {
+        return new HashSet<>(targetLotto).size() < targetLotto.size();
     }
 
     private int getInputMoney() {
