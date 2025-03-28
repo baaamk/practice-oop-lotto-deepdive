@@ -1,10 +1,10 @@
 package controller;
 
-import model.service.*;
-import view.UserInput;
-import view.UserInputImpl;
-import view.UserOutput;
-import view.UserOutputImpl;
+import model.domain.LottoService;
+import view.input.UserInput;
+import view.input.UserInputImpl;
+import view.output.UserOutput;
+import view.output.UserOutputImpl;
 
 import java.util.List;
 

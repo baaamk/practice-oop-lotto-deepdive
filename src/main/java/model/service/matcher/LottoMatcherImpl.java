@@ -1,8 +1,7 @@
-package model.service;
+package model.service.matcher;
 
-import model.repository.LottoRepository;
-import model.repository.LottoRepositoryImpl;
 import model.repository.LottoWinning;
+import model.domain.Lotto;
 
 import java.util.Iterator;
 import java.util.List;

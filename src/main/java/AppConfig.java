@@ -3,11 +3,17 @@ import model.repository.LottoRepository;
 import model.repository.LottoRepositoryImpl;
 import model.repository.LottoWinning;
 import model.repository.LottoWinningImpl;
-import model.service.*;
-import model.service.MoneyInput;
-import model.service.MoneyInputImpl;
+import model.domain.LottoService;
+import model.service.money_manager.MoneyInput;
+import model.service.money_manager.MoneyInputImpl;
 import model.service.calculator.Calculator;
 import model.service.calculator.CalculatorImpl;
+import model.service.generator.LottoGenerator;
+import model.service.generator.LottoGeneratorImpl;
+import model.service.matcher.LottoMatcher;
+import model.service.matcher.LottoMatcherImpl;
+import model.service.saver.LottoSaver;
+import model.service.saver.LottoSaverImpl;
 
 public class AppConfig {
     public LottoGenerator lottoGenerator() {

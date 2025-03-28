@@ -1,8 +1,7 @@
-package model.service;
+package model.service.generator;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import model.repository.LottoRepository;
-import model.repository.LottoRepositoryImpl;
+import model.domain.Lotto;
 
 public class LottoGeneratorImpl implements LottoGenerator {
 

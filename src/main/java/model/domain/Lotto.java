@@ -1,4 +1,4 @@
-package model.service;
+package model.domain;
 
 import java.util.Collections;
 import java.util.List;

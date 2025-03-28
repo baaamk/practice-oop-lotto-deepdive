@@ -1,7 +1,7 @@
-    package model.service;
+    package model.service.saver;
 
     import model.repository.LottoRepository;
-    import model.repository.LottoRepositoryImpl;
+    import model.service.generator.LottoGenerator;
 
     public class LottoSaverImpl implements LottoSaver {
         private final LottoRepository lottoRepository;

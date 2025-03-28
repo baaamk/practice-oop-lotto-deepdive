@@ -1,4 +1,4 @@
-package model.service;
+package model.service.money_manager;
 
 public class MoneyInputImpl implements MoneyInput {
 

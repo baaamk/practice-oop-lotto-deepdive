@@ -1,6 +1,6 @@
 package model.repository;
 
-import model.service.Lotto;
+import model.domain.Lotto;
 
 import java.util.List;
 

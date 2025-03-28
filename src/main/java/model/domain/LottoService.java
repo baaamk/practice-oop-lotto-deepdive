@@ -1,10 +1,13 @@
-package model.service;
+package model.domain;
 
 import model.repository.LottoRepository;
 import model.repository.LottoRepositoryImpl;
 import model.repository.LottoWinning;
 import model.repository.LottoWinningImpl;
 import model.service.calculator.Calculator;
+import model.service.matcher.LottoMatcher;
+import model.service.money_manager.MoneyInput;
+import model.service.saver.LottoSaver;
 
 import java.util.List;
 
