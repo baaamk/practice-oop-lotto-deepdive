@@ -1,4 +1,4 @@
-package model.domain;
+package model.domain.unit;
 
 public enum Unit {
     UNIT_MONEY(1000),

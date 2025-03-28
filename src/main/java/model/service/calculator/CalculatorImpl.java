@@ -1,10 +1,9 @@
 package model.service.calculator;
 
-import model.domain.Unit;
 import model.repository.LottoWinning;
 
-import static model.domain.PrizeUnit.*;
-import static model.domain.Unit.*;
+import static model.domain.unit.PrizeUnit.*;
+import static model.domain.unit.Unit.*;
 
 public class CalculatorImpl implements Calculator {
     private final LottoWinning lottoWinning;

@@ -1,9 +1,8 @@
 package model.service.money_manager;
 
-import model.domain.Error;
-import model.domain.Unit;
+import model.domain.exception.Error;
 
-import static model.domain.Unit.*;
+import static model.domain.unit.Unit.*;
 
 public class MoneyInputImpl implements MoneyInput {
 

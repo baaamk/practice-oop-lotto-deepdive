@@ -1,4 +1,4 @@
-package model.domain;
+package model.domain.unit;
 
 public enum PrizeUnit {
     FIRST_PRIZE(2000000000),

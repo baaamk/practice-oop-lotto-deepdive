@@ -9,7 +9,7 @@ import view.output.UserOutputImpl;
 
 import java.util.List;
 
-import static model.domain.Error.DUPLICATED_BONUS_NUMBER;
+import static model.domain.exception.Error.DUPLICATED_BONUS_NUMBER;
 
 public class LottoController {
     private final UserInput userInput;

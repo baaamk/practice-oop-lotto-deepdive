@@ -1,4 +1,4 @@
-package model.domain;
+package model.domain.exception;
 
 public enum Error {
     INVALID_AMOUNT("[ERROR] 1000원 단위로 입력해 주세요."),

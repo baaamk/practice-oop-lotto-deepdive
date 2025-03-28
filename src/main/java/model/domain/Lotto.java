@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import static model.domain.Error.*;
-import static model.domain.Unit.*;
+import static model.domain.exception.Error.*;
+import static model.domain.unit.Unit.*;
 
 public class Lotto {
     private final List<Integer> numbers;
