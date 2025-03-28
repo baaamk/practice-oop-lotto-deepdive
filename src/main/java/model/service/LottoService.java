@@ -4,22 +4,21 @@ import model.repository.LottoRepository;
 import model.repository.LottoRepositoryImpl;
 import model.repository.LottoWinning;
 import model.repository.LottoWinningImpl;
+import model.service.calculator.Calculator;
 
 import java.util.List;
 
 public class LottoService {
     private final Calculator calculator;
     private final LottoWinning lottoWinning;
-    private final InputNumber inputNumber;
     private final LottoRepository lottoRepository;
     private final LottoMatcher lottoMatcher;
     private final LottoSaver lottoSaver;
     private final MoneyInput moneyInput;
 
-    public LottoService(Calculator calculator, InputNumber inputNumber, LottoMatcher lottoMatcher, LottoSaver lottoSaver, MoneyInput moneyInput) {
+    public LottoService(Calculator calculator, LottoMatcher lottoMatcher, LottoSaver lottoSaver, MoneyInput moneyInput) {
         this.calculator = calculator;
         this.lottoWinning = LottoWinningImpl.getInstance();
-        this.inputNumber = inputNumber;
         this.lottoRepository = LottoRepositoryImpl.getInstance();
         this.lottoMatcher = lottoMatcher;
         this.lottoSaver = lottoSaver;
