@@ -26,40 +26,16 @@ public class LottoController {
     }
 
     public void run() {
-        lottoMainService(getInputMoney());
-    }
+        int inputMoney = getInputMoney();
+        List<Integer> targetLotto = getLottoNumbers();
+        int bonusNumber = getBonusNumber();
 
-
-
-
-    private void lottoMainService(int inputMoney) {
-        List<Integer> targetLotto = changeInputNumberType();
+        validateBonusNumber(targetLotto, bonusNumber);
         Lotto numbers = new Lotto(targetLotto);
-        int bonusNumber = Integer.parseInt(userInput.inputBonusNumber());
-        bonusNumberValidate(numbers, bonusNumber);
         lottoService.compare(numbers, bonusNumber);
-        double calculateResult = lottoService.calculateService(inputMoney);
-        userOutput.printResult(lottoService.setLottoWinning() , calculateResult);
-
+        double result = lottoService.calculateService(inputMoney);
+        userOutput.printResult(lottoService.setLottoWinning(), result);
     }
-
-    private List<Integer> changeInputNumberType() {
-        try {
-            return Arrays.stream(userInput.inputNumber().split(","))
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
-        }
-    }
-
-    private void bonusNumberValidate(Lotto targetLotto, int bonusNumber) {
-        if (targetLotto.getNumbers().contains(bonusNumber)) {
-            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER.getErrorMessage());
-        }
-    }
-
-
 
     private int getInputMoney() {
         String inputMoney = userInput.inputMoney();
@@ -70,6 +46,30 @@ public class LottoController {
         lottoService.lottoService(validatedMoney);
         userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
         return validatedMoney;
+    }
+
+    private List<Integer> getLottoNumbers() {
+        try {
+            return Arrays.stream(userInput.inputNumber().split(","))
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
+        }
+    }
+
+    private int getBonusNumber() {
+        try {
+            return Integer.parseInt(userInput.inputBonusNumber());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
+        }
+    }
+
+    private void validateBonusNumber(List<Integer> targetLotto, int bonusNumber) {
+        if (targetLotto.contains(bonusNumber)) {
+            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER.getErrorMessage());
+        }
     }
 
     private boolean validationNumber(String inputNumber) {
