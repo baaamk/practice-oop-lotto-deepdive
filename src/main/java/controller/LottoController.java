@@ -27,14 +27,14 @@ public class LottoController {
 
     public void run() {
         int inputMoney = getInputMoney();
+
         List<Integer> targetLotto = getLottoNumbers();
         int bonusNumber = getBonusNumber();
 
         validateBonusNumber(targetLotto, bonusNumber);
         Lotto numbers = new Lotto(targetLotto);
         lottoService.compare(numbers, bonusNumber);
-        double result = lottoService.calculateService(inputMoney);
-        userOutput.printResult(lottoService.setLottoWinning(), result);
+        userOutput.printResult(lottoService.setLottoWinning(), lottoService.calculateService(inputMoney));
     }
 
     private int getInputMoney() {
