@@ -1,5 +1,7 @@
 package view.output;
 
+import model.domain.Lotto;
+
 import java.util.List;
 
 public interface UserOutput {

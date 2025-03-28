@@ -15,13 +15,13 @@ public class LottoMatcherImpl implements LottoMatcher {
     }
 
     @Override
-    public void match(List<Integer> targetNumbers, Iterator<Lotto> eachLotto, int bonusNumber) {
+    public void match(Lotto targetNumbers, Iterator<Lotto> eachLotto, int bonusNumber) {
 
         while (eachLotto.hasNext()) {
             List<Integer> currentNumber = eachLotto.next().getNumbers();
             int sameNumber = 0;
             for (Integer eachNumber : currentNumber) {
-                if (targetNumbers.contains(eachNumber)) {
+                if (targetNumbers.getNumbers().contains(eachNumber)) {
                     sameNumber++;
                 }
             }

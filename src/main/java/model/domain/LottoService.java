@@ -41,7 +41,7 @@ public class LottoService {
         return lottoRepository.getLottoNumbers();
     }
 
-    public void compare(List<Integer> targetLotto, int bonusNumber) {
+    public void compare(Lotto targetLotto, int bonusNumber) {
         lottoMatcher.match(targetLotto, lottoRepository.getLotto().iterator(), bonusNumber);
     }
 
