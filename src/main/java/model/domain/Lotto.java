@@ -25,7 +25,7 @@ public class Lotto {
             throw new IllegalArgumentException(INVALID_LOTTO_COUNT.getErrorMessage());
         }
         if (!lottoNumberRange(numbers)) {
-            throw new IllegalArgumentException(INVALID_AMOUNT.getErrorMessage());
+            throw new IllegalArgumentException(INVALID_RANGE.getErrorMessage());
         }
         if (hasDuplicates(numbers)) {
             throw new IllegalArgumentException(DUPLICATED_NUMBER.getErrorMessage());
