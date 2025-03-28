@@ -20,13 +20,25 @@ public class LottoController {
     }
 
     public void run() {
-        int inputMoney = userInput.inputMoney();
-        lottoService.lottoService(inputMoney);
-        userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
+        lottoMainService(getInputMoney());
+        getPrintResult(getInputMoney());
+    }
+
+    private void getPrintResult(int inputMoney) {
+        userOutput.printResult(lottoService.setLottoWinning() ,lottoService.calculateService(inputMoney));
+    }
+
+    private void lottoMainService(int inputMoney) {
         List<Integer> targetLotto = userInput.inputNumber();
         int bonusNumber = userInput.inputBonusNumber();
         lottoService.compare(targetLotto, bonusNumber);
         lottoService.calculateService(inputMoney);
-        userOutput.printResult(lottoService.setLottoWinning() ,lottoService.calculateService(inputMoney));
+    }
+
+    private int getInputMoney() {
+        int inputMoney = userInput.inputMoney();
+        lottoService.lottoService(inputMoney);
+        userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
+        return inputMoney;
     }
 }
