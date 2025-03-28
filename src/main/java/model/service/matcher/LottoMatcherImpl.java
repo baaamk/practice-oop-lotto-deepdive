@@ -15,7 +15,6 @@ public class LottoMatcherImpl implements LottoMatcher {
     }
 
     @Override
-    //나중에 ENUM으로 바꾸기
     public void match(List<Integer> targetNumbers, Iterator<Lotto> eachLotto, int bonusNumber) {
 
         while (eachLotto.hasNext()) {

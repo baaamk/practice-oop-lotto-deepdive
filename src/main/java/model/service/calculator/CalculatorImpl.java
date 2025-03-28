@@ -3,6 +3,7 @@ package model.service.calculator;
 import model.domain.Unit;
 import model.repository.LottoWinning;
 
+import static model.domain.PrizeUnit.*;
 import static model.domain.Unit.*;
 
 public class CalculatorImpl implements Calculator {
@@ -14,7 +15,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public double percentCalculator(int inputMoney) {
-        return Math.round((double) getTotalPrize() / inputMoney * 100 *10 /10.0);
+        return Math.round((double) getTotalPrize() / inputMoney * PERCENT_UNIT.getValue() *10 /10.0);
     }
 
     private int getTotalPrize() {

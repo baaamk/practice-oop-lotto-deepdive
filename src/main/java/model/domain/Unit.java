@@ -1,19 +1,19 @@
 package model.domain;
 
 public enum Unit {
-    FIRST_PRIZE(2000000000),
-    SECOND_PRIZE(30000000),
-    THIRD_PRIZE(1500000),
-    FOURTH_PRIZE(50000),
-    FIFTH_PRIZE(5000);
+    UNIT_MONEY(1000),
+    PERCENT_UNIT(100),
+    MAX_NUMBER(45),
+    MIN_NUMBER(1),
+    UNIT_LOTTO_NUMBER(6);
 
-    private final int prize;
+    private final int value;
 
-    Unit(int prize) {
-        this.prize = prize;
+    Unit(int value) {
+        this.value = value;
     }
 
-    public int getPrize() {
-        return prize;
+    public int getValue() {
+        return value;
     }
 }
