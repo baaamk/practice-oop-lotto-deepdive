@@ -15,14 +15,14 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public double percentCalculator(int inputMoney) {
-        return Math.round((double) getTotalPrize() / inputMoney * PERCENT_UNIT.getValue() *10 /10.0);
+        return Math.round(((double) getTotalPrize() / inputMoney) * PERCENT_UNIT.getValue() * 10) / 10.0;
     }
 
     private int getTotalPrize() {
         return lottoWinning.getFirst() * FIRST_PRIZE.getPrize()
-                + lottoWinning.getSecond() * FIRST_PRIZE.getPrize()
-                + lottoWinning.getThird() * FIRST_PRIZE.getPrize()
-                + lottoWinning.getFourth() * FIRST_PRIZE.getPrize()
-                + lottoWinning.getFifth() * FIRST_PRIZE.getPrize();
+                + lottoWinning.getSecond() * SECOND_PRIZE.getPrize()
+                + lottoWinning.getThird() * THIRD_PRIZE.getPrize()
+                + lottoWinning.getFourth() * FOURTH_PRIZE.getPrize()
+                + lottoWinning.getFifth() * FIFTH_PRIZE.getPrize();
     }
 }
