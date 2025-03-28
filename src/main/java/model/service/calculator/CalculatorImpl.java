@@ -1,7 +1,6 @@
-package model.service;
+package model.service.calculator;
 
 import model.repository.LottoWinning;
-import model.repository.LottoWinningImpl;
 
 public class CalculatorImpl implements Calculator {
     private final LottoWinning lottoWinning;
