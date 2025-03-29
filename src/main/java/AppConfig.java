@@ -15,7 +15,7 @@ import model.service.matcher.LottoMatcherImpl;
 import model.service.saver.LottoSaver;
 import model.service.saver.LottoSaverImpl;
 
-public class AppConfig {
+public final class AppConfig {
     public LottoGenerator lottoGenerator() {
         return new LottoGeneratorImpl();
     }
