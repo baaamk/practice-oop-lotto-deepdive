@@ -28,7 +28,7 @@ public class LottoService {
         this.moneyInput = moneyInput;
     }
 
-    public void lottoService(int money) {
+    public void lottoFactory(int money) {
         int count = moneyInput.countLotto(money);
         lottoSaver.lottoSave(count);
     }

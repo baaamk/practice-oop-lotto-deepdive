@@ -40,7 +40,7 @@ public class LottoController {
     private int getInputMoney() {
         String inputMoney = userInput.inputMoney();
         int validatedMoney = validateNumber(inputMoney);
-        lottoService.lottoService(validatedMoney);
+        lottoService.lottoFactory(validatedMoney);
         userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
         return validatedMoney;
     }
