@@ -39,7 +39,7 @@ public class LottoController {
 
     private int getInputMoney() {
         String inputMoney = userInput.inputMoney();
-        if (!validationNumber(inputMoney)) {
+        if (!validateNumber(inputMoney)) {
             throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
         }
         int validatedMoney = Integer.parseInt(inputMoney);
@@ -72,7 +72,7 @@ public class LottoController {
         }
     }
 
-    private boolean validationNumber(String inputNumber) {
+    private boolean validateNumber(String inputNumber) {
         try {
             Integer.parseInt(inputNumber);
             return true;
