@@ -1,7 +1,7 @@
 package model.domain.unit;
 
 public enum Unit {
-    UNIT_MONEY(1000),
+    UNIT_MONEY(1_000),
     PERCENT_UNIT(100),
     MAX_NUMBER(45),
     MIN_NUMBER(1),
