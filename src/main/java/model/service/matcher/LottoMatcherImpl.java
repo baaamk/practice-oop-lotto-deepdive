@@ -3,8 +3,10 @@ package model.service.matcher;
 import model.repository.LottoWinning;
 import model.domain.Lotto;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class LottoMatcherImpl implements LottoMatcher {
 
@@ -16,18 +18,24 @@ public class LottoMatcherImpl implements LottoMatcher {
 
     @Override
     public void match(Lotto targetNumbers, Iterator<Lotto> eachLotto, int bonusNumber) {
-
+        Set<Integer> targetSet = new HashSet<>(targetNumbers.getNumbers());
         while (eachLotto.hasNext()) {
-            List<Integer> currentNumber = eachLotto.next().getNumbers();
-            int sameNumber = 0;
-            for (Integer eachNumber : currentNumber) {
-                if (targetNumbers.getNumbers().contains(eachNumber)) {
-                    sameNumber++;
-                }
-            }
-            lottoRank(sameNumber, currentNumber, bonusNumber);
+            List<Integer> currentNumbers = eachLotto.next().getNumbers();
+            int sameNumber = countMatchedNumbers(currentNumbers, targetSet);
+            lottoRank(sameNumber, currentNumbers, bonusNumber);
         }
     }
+
+    private int countMatchedNumbers(List<Integer> currentNumbers, Set<Integer> targetSet) {
+        int count = 0;
+        for (Integer number : currentNumbers) {
+            if (targetSet.contains(number)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     private void lottoRank(int sameNumber, List<Integer> currentNumber, int bonusNumber) {
         if (sameNumber == 6) {
