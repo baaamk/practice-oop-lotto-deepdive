@@ -21,13 +21,13 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != UNIT_LOTTO_NUMBER.getValue()) {
-            throw new IllegalArgumentException(INVALID_LOTTO_COUNT.getErrorMessage());
+            throw new IllegalArgumentException(INVALID_LOTTO_COUNT);
         }
         if (!lottoNumberRange(numbers)) {
-            throw new IllegalArgumentException(INVALID_RANGE.getErrorMessage());
+            throw new IllegalArgumentException(INVALID_RANGE);
         }
         if (hasDuplicates(numbers)) {
-            throw new IllegalArgumentException(DUPLICATED_NUMBER.getErrorMessage());
+            throw new IllegalArgumentException(DUPLICATED_NUMBER);
         }
     }
 

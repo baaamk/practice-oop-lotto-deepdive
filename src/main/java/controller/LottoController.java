@@ -51,7 +51,7 @@ public class LottoController {
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT);
         }
     }
 
@@ -59,13 +59,13 @@ public class LottoController {
         try {
             return Integer.parseInt(userInput.inputBonusNumber());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT);
         }
     }
 
     private void validateBonusNumber(List<Integer> targetLotto, int bonusNumber) {
         if (targetLotto.contains(bonusNumber)) {
-            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER.getErrorMessage());
+            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER);
         }
     }
 
@@ -73,7 +73,7 @@ public class LottoController {
         try {
             return Integer.parseInt(inputNumber);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT);
         }
     }
 }
