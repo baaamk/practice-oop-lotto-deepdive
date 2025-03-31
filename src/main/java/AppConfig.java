@@ -16,39 +16,39 @@ import model.service.saver.LottoSaver;
 import model.service.saver.LottoSaverImpl;
 
 public final class AppConfig {
-    public LottoGenerator lottoGenerator() {
+    public LottoController lottoController() {
+        return new LottoController(lottoService());
+    }
+
+    private LottoGenerator lottoGenerator() {
         return new LottoGeneratorImpl();
     }
 
-    public MoneyInput moneyInput() {
+    private MoneyInput moneyInput() {
         return new MoneyInputImpl();
     }
 
-    public Calculator calculator() {
+    private Calculator calculator() {
         return new CalculatorImpl(lottoWinning());
     }
-    public LottoRepository lottoRepository() {
+    private LottoRepository lottoRepository() {
         return LottoRepositoryImpl.getInstance();
     }
 
-    public LottoWinning lottoWinning() {
+    private LottoWinning lottoWinning() {
         return LottoWinningImpl.getInstance();
     }
 
-    public LottoMatcher lottoMatcher() {
+    private LottoMatcher lottoMatcher() {
         return new LottoMatcherImpl(lottoWinning());
     }
 
-    public LottoSaver lottoSaver() {
+    private LottoSaver lottoSaver() {
         return new LottoSaverImpl(lottoGenerator(),lottoRepository());
     }
 
-    public LottoService lottoService() {
+    private LottoService lottoService() {
         return new LottoService(calculator(), lottoMatcher(), lottoSaver(), moneyInput());
-    }
-
-    public LottoController lottoController() {
-        return new LottoController(lottoService());
     }
 
 }
