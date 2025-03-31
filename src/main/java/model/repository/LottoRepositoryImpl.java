@@ -3,6 +3,7 @@ package model.repository;
 import model.domain.Lotto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LottoRepositoryImpl implements LottoRepository{
@@ -25,7 +26,8 @@ public class LottoRepositoryImpl implements LottoRepository{
 
     public List<List<Integer>> getLottoNumbers() {
         List<List<Integer>> lottoNumbersList = new ArrayList<>();
-        for (Lotto lotto : lotto) {
+        for (Lotto lotto : this.lotto) {
+            Collections.sort(lotto.getNumbers());
             lottoNumbersList.add(lotto.getNumbers());
         }
         return lottoNumbersList;
