@@ -39,10 +39,7 @@ public class LottoController {
 
     private int getInputMoney() {
         String inputMoney = userInput.inputMoney();
-        if (!validateNumber(inputMoney)) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
-        }
-        int validatedMoney = Integer.parseInt(inputMoney);
+        int validatedMoney = validateNumber(inputMoney);
         lottoService.lottoService(validatedMoney);
         userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
         return validatedMoney;
@@ -72,12 +69,11 @@ public class LottoController {
         }
     }
 
-    private boolean validateNumber(String inputNumber) {
+    private int validateNumber(String inputNumber) {
         try {
-            Integer.parseInt(inputNumber);
-            return true;
+            return Integer.parseInt(inputNumber);
         } catch (NumberFormatException e) {
-            return false;
+            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT.getErrorMessage());
         }
     }
 }
