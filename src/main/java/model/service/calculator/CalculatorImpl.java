@@ -1,16 +1,10 @@
 package model.service.calculator;
 
-import model.repository.LottoWinning;
-
 import static model.domain.unit.PrizeUnit.*;
 import static model.domain.unit.Unit.*;
+import static model.service.LottoWinning.*;
 
 public class CalculatorImpl implements Calculator {
-    private final LottoWinning lottoWinning;
-
-    public CalculatorImpl(LottoWinning lottoWinning) {
-        this.lottoWinning = lottoWinning;
-    }
 
     @Override
     public double percentCalculator(int inputMoney) {
@@ -18,10 +12,10 @@ public class CalculatorImpl implements Calculator {
     }
 
     private int getTotalPrize() {
-        return lottoWinning.getFirst() * FIRST_PRIZE.getPrize()
-                + lottoWinning.getSecond() * SECOND_PRIZE.getPrize()
-                + lottoWinning.getThird() * THIRD_PRIZE.getPrize()
-                + lottoWinning.getFourth() * FOURTH_PRIZE.getPrize()
-                + lottoWinning.getFifth() * FIFTH_PRIZE.getPrize();
+        return FIRST.getCount() * FIRST_PRIZE.getPrize()
+                + SECOND.getCount() * SECOND_PRIZE.getPrize()
+                + THIRD.getCount() * THIRD_PRIZE.getPrize()
+                + FOURTH.getCount() * FOURTH_PRIZE.getPrize()
+                + FIFTH.getCount() * FIFTH_PRIZE.getPrize();
     }
 }
