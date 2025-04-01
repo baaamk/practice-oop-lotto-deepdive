@@ -1,6 +1,7 @@
 package view.output;
 
 import model.domain.Lotto;
+import model.dto.LottoWinningDTO;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,13 +16,10 @@ public class UserOutputImpl implements UserOutput {
     }
 
     @Override
-    public void printResult(int[] matches, double percent) {
-        System.out.println("당첨 통계\n" + "---");
-        System.out.println("3개 일치 (5,000원) - " + matches[0] + "개");
-        System.out.println("4개 일치 (50,000원) - " + matches[1] + "개");
-        System.out.println("5개 일치 (1,500,000원) - " + matches[2] + "개");
-        System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + matches[3] + "개");
-        System.out.println("6개 일치 (2,000,000,000원) - " + matches[4] + "개");
+    public void printResult(List<LottoWinningDTO> results, double percent) {
+        for (LottoWinningDTO result : results) {
+            System.out.println(result.getDescription() + " - " + result.getCount() + "개");
+        }
         System.out.println("총 수익률은 " + percent + "%입니다.");
     }
 }

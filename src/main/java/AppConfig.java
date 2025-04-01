@@ -1,8 +1,6 @@
 import controller.LottoController;
 import model.repository.LottoRepository;
 import model.repository.LottoRepositoryImpl;
-import model.repository.LottoWinning;
-import model.repository.LottoWinningImpl;
 import model.domain.LottoService;
 import model.service.money_manager.MoneyInput;
 import model.service.money_manager.MoneyInputImpl;
@@ -31,19 +29,17 @@ public final class AppConfig {
     }
 
     private Calculator calculator() {
-        return new CalculatorImpl(lottoWinning());
+        return new CalculatorImpl();
     }
 
     private LottoRepository lottoRepository() {
         return LottoRepositoryImpl.getInstance();
     }
 
-    private LottoWinning lottoWinning() {
-        return LottoWinningImpl.getInstance();
-    }
+
 
     private LottoMatcher lottoMatcher() {
-        return new LottoMatcherImpl(lottoWinning());
+        return new LottoMatcherImpl();
     }
 
     private LottoSaver lottoSaver() {
