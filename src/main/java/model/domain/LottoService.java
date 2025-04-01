@@ -8,6 +8,7 @@ import model.service.calculator.Calculator;
 import model.service.matcher.LottoMatcher;
 import model.service.money_manager.MoneyInput;
 import model.service.saver.LottoSaver;
+import model.service.validator.Validator;
 
 import java.util.List;
 
@@ -18,15 +19,22 @@ public class LottoService {
     private final LottoMatcher lottoMatcher;
     private final LottoSaver lottoSaver;
     private final MoneyInput moneyInput;
+    private final Validator validator;
 
-    public LottoService(Calculator calculator, LottoMatcher lottoMatcher, LottoSaver lottoSaver, MoneyInput moneyInput) {
+    public LottoService(Calculator calculator, LottoMatcher lottoMatcher, LottoSaver lottoSaver, MoneyInput moneyInput, Validator validator) {
         this.calculator = calculator;
+        this.validator = validator;
         this.lottoWinning = LottoWinningImpl.getInstance();
         this.lottoRepository = LottoRepositoryImpl.getInstance();
         this.lottoMatcher = lottoMatcher;
         this.lottoSaver = lottoSaver;
         this.moneyInput = moneyInput;
     }
+
+    public void lottoMachine(Lotto lotto, int bonusNumber) {
+        compare(lotto,bonusNumber);
+    }
+
 
     public void lottoFactory(int money) {
         int count = moneyInput.countLotto(money);
@@ -51,6 +59,10 @@ public class LottoService {
 
     public int[] setLottoWinning() {
         return lottoWinning.getMatches();
+    }
+
+    public void validate(String inputNumber) {
+        validator.validateNumber(inputNumber);
     }
 
 }

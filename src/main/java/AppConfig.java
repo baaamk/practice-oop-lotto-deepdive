@@ -14,6 +14,8 @@ import model.service.matcher.LottoMatcher;
 import model.service.matcher.LottoMatcherImpl;
 import model.service.saver.LottoSaver;
 import model.service.saver.LottoSaverImpl;
+import model.service.validator.Validator;
+import model.service.validator.ValidatorImpl;
 
 public final class AppConfig {
     public LottoController lottoController() {
@@ -31,6 +33,7 @@ public final class AppConfig {
     private Calculator calculator() {
         return new CalculatorImpl(lottoWinning());
     }
+
     private LottoRepository lottoRepository() {
         return LottoRepositoryImpl.getInstance();
     }
@@ -44,11 +47,16 @@ public final class AppConfig {
     }
 
     private LottoSaver lottoSaver() {
-        return new LottoSaverImpl(lottoGenerator(),lottoRepository());
+        return new LottoSaverImpl(lottoGenerator(), lottoRepository());
+    }
+
+    private Validator validator() {
+        return new ValidatorImpl();
     }
 
     private LottoService lottoService() {
-        return new LottoService(calculator(), lottoMatcher(), lottoSaver(), moneyInput());
+        return new LottoService(calculator(), lottoMatcher(), lottoSaver(), moneyInput(), validator());
     }
+
 
 }
