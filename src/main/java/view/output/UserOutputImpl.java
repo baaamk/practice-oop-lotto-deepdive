@@ -1,9 +1,7 @@
 package view.output;
 
-import model.domain.Lotto;
 import model.dto.LottoWinningDTO;
 
-import java.util.Collections;
 import java.util.List;
 
 public class UserOutputImpl implements UserOutput {
