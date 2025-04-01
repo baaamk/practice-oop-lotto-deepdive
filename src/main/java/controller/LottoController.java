@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static model.domain.exception.Error.DUPLICATED_BONUS_NUMBER;
-
 public class LottoController {
     private final UserInput userInput;
     private final UserOutput userOutput;
@@ -26,22 +24,23 @@ public class LottoController {
     }
 
     public void run() {
-        int inputMoney = getInputMoney();
+        int inputMoney = lottoService.validateMoney(userInput.inputMoney());
+        lottoService.createLotto(inputMoney);
+        printLotto();
         List<Integer> targetLotto = getLottoNumbers();
         int bonusNumber = getBonusNumber();
-
-        validateBonusNumber(targetLotto, bonusNumber);
-        lottoService.lottoMachine(new Lotto(targetLotto), bonusNumber);
-        userOutput.printResult(lottoService.setLottoWinning(), lottoService.calculateService(inputMoney));
+        lottoService.compareLotto(targetLotto, bonusNumber, new Lotto(targetLotto));
+        printResult(inputMoney);
     }
 
-    private int getInputMoney() {
-        String inputMoney = userInput.inputMoney();
-        int validatedMoney = validateNumber(inputMoney);
-        lottoService.lottoFactory(validatedMoney);
+    private void printResult(int inputMoney) {
+        userOutput.printResult(lottoService.getWinningResults(), lottoService.calculateService(inputMoney));
+    }
+
+    private void printLotto() {
         userOutput.printLotto(lottoService.getCount(), lottoService.getLotto());
-        return validatedMoney;
     }
+
 
     private List<Integer> getLottoNumbers() {
         try {
@@ -61,17 +60,4 @@ public class LottoController {
         }
     }
 
-    private void validateBonusNumber(List<Integer> targetLotto, int bonusNumber) {
-        if (targetLotto.contains(bonusNumber)) {
-            throw new IllegalArgumentException(DUPLICATED_BONUS_NUMBER);
-        }
-    }
-
-    private int validateNumber(String inputNumber) {
-        try {
-            return Integer.parseInt(inputNumber);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Error.INVALID_NUMBER_FORMAT);
-        }
-    }
 }

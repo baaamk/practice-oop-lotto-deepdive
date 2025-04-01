@@ -1,6 +1,5 @@
 package model.service.matcher;
 
-import model.repository.LottoWinning;
 import model.domain.Lotto;
 
 import java.util.HashSet;
@@ -8,13 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import static model.service.LottoWinning.*;
+
 public class LottoMatcherImpl implements LottoMatcher {
-
-    private final LottoWinning lottoWinning;
-
-    public LottoMatcherImpl(LottoWinning lottoWinning) {
-        this.lottoWinning = lottoWinning;
-    }
 
     @Override
     public void match(Lotto targetNumbers, Iterator<Lotto> eachLotto, int bonusNumber) {
@@ -39,23 +34,23 @@ public class LottoMatcherImpl implements LottoMatcher {
 
     private void lottoRank(int sameNumber, List<Integer> currentNumber, int bonusNumber) {
         if (sameNumber == 6) {
-            lottoWinning.addFirst();
+            FIRST.increment();
             return;
         }
         if (sameNumber == 5 && currentNumber.contains(bonusNumber)) {
-            lottoWinning.addSecond();
+            SECOND.increment();
             return;
         }
         if (sameNumber == 5) {
-            lottoWinning.addThird();
+            THIRD.increment();
             return;
         }
         if (sameNumber == 4) {
-            lottoWinning.addFourth();
+            FOURTH.increment();
             return;
         }
         if (sameNumber == 3) {
-            lottoWinning.addFifth();
+            FIFTH.increment();
         }
     }
 }
