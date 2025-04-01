@@ -14,6 +14,7 @@ public class ValidatorImpl implements Validator {
         }
     }
 
+
     public int validateNumber(String inputNumber) {
         try {
             return Integer.parseInt(inputNumber);
